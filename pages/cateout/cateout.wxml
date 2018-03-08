@@ -1,0 +1,18 @@
+<view class="box">
+  <view class="add-box">
+    <view class="add-icon">
+      <image src="{{cate_info.cate_icon}}"></image>
+    </view>
+    <view class="add-num">
+      <input type="text" placeholder="请输入类别"/>
+    </view>
+  </view>
+
+  <view class="icons">
+    <view class="item" wx:for="{{icons}}">
+      <view class="image-item" data-cate="{{item}}"  bindtap="setCate">
+        <image src="{{item.icon}}"></image>
+      </view>
+    </view>
+  </view>
+</view>

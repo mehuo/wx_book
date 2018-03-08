@@ -1,0 +1,27 @@
+/**app.wxss**/
+.tc{
+  text-align: center;
+}
+.tl{
+  text-align:left;
+}
+.tr{
+  text-align:right;
+}
+.flex-wrp{
+  display: flex;
+  display: -webkit-flex;
+  flex-direction:row;
+}
+.inline{
+  display: inline-block;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 

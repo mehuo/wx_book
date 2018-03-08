@@ -1,0 +1,15 @@
+{
+  "pages":[
+    "pages/index/index",    
+    "pages/record/record",
+    "pages/logs/logs",
+    "pages/catein/catein",
+    "pages/cateout/cateout"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#363b58",
+    "navigationBarTitleText": "记一笔",
+    "navigationBarTextStyle":"#fff"
+  }
+}
