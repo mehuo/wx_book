@@ -1,33 +1,54 @@
 <view class="box">
-  <view class="record-type">
-    <view class="flex-wrp">
-      <view class="item {{type==1?'active':''}}" data-type="1" bindtap="changeType">支出</view>
-      <view class="item {{type==2?'active':''}}" data-type="2" bindtap='changeType'>收入</view>
-    </view>
+  <view class="type-box">
+    <view class="record-type">
+      <text class="item {{type==1?'active':''}}" data-type="1" bindtap="changeType">支出</text>
+      <text class="item {{type==2?'active':''}}" data-type="2" bindtap='changeType'>收入</text>
   </view>
-
-  <view class="add-box">
+  </view>
+  
+  <!-- <view class="add-box">
     <view class="add-icon">
       <image src="{{record_info.cate_icon}}"></image>
     </view>
     <view class="add-desc">{{record_info.cate_text}}</view>
     <view class="add-num">
-      <input type="digit" placeholder="0.00"/>
+      <input type="digit" placeholder="0.00" />
     </view>
-  </view>
+  </view> -->
 
   <view class="icons">
     <view class="item" wx:for="{{icons}}">
-      <view class="image-item" data-cate="{{item}}"  bindtap="setCate">
-        <image src="{{item.icon}}"></image>
+      <view class="image-item" data-cate="{{item}}" data-index="{{index}}" wx:for-index="index" bindtap="setCate">
+        <image wx:if="{{item.id == record_info.icon_id}}" src="{{item.icon}}-on.png"></image>        
+        <image wx:else src="{{item.icon}}.png"></image>
       </view>
       <view class="text">{{item.text}}</view>
     </view>
     <view class="item">
-      <view class="image-item"  bindtap="newCate">
-        <image src="{{icons[0].icon}}"></image>
+      <view class="image-item" bindtap="newCate">
+        <image src="../image/icons/set.png"></image>
       </view>
       <view class="text">自定义</view>
+    </view>
+  </view>
+
+  <view class="keyboard">
+    <view class="input">
+      <input class="desc" type="text" placeholder="备注" />
+      <view class="value">
+        <view wx:if="{{numtype == 'res'}}">{{record_info.value}}</view>
+        <view wx:else>{{num}}</view>
+      </view>
+    </view>
+    <view class="oper">
+      <view  class="item {{item.type== 'complete' ? 'yellow-bg':''}}"  wx:for="{{keyboard}}">
+        <view wx:if="{{item.type == 'num'}}" data-value="{{item.value}}" bindtap="setNum">{{item.value}}</view>
+        <view wx:elif="{{item.type == 'today'}}" bindtap="setDate">{{item.value}}</view>
+        <view wx:elif="{{item.type == 'plus'}}" data-type="plus" bindtap="calc">{{item.value}}</view>
+        <view wx:elif="{{item.type == 'less'}}" data-type="less" bindtap='calc'>{{item.value}}</view>
+        <view wx:elif="{{item.type == 'delete'}}" bindtap='del'>{{item.value}}</view>
+        <view wx:elif="{{item.type == 'complete'}}" bindtap='complete'>{{item.value}}</view>
+      </view>
     </view>
   </view>
 </view>

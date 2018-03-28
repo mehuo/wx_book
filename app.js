@@ -35,6 +35,24 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    keyboard:[
+      {type:'num',value:'9'},
+      { type: 'num', value: '8' },
+      { type: 'num', value: '7' },
+      { type: 'today', value: '今天' },
+      { type: 'num', value: '6' },
+      { type: 'num', value: '5' },
+      { type: 'num', value: '4' },
+      { type: 'plus', value: '+' },
+      { type: 'num', value: '3' },
+      { type: 'num', value: '2' },
+      { type: 'num', value: '1' },
+      { type: 'less', value: '-' },
+      { type: 'num', value: '.' },
+      { type: 'num', value: '0' },
+      { type: 'delete', value: '删除' },
+      { type: 'complete', value: '完成' } 
+    ]
   }
 })

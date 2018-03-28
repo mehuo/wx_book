@@ -1,0 +1,35 @@
+<view>
+  <view class="overview">
+    <view class="item">
+      <view class="out">总支出</view>
+      <text>100000</text>
+    </view>
+    <view class="item" style="width:34%">
+      <view class="in">总收入</view>
+      <text>100000</text>
+    </view>
+    <view class="item">
+      <view class="balance">结余</view>
+      <text>0</text>
+    </view>
+  </view>
+  <view class="details">
+    <view class="item" wx:for="{{details}}">
+      <view class="down"></view>
+      <view class="date">
+        <view>{{item.month}}月</view>
+        <view>{{item.year}}</view>        
+      </view>
+      <view class="bar">
+        <view class="in">收<text>{{item.in}}</text></view>
+        <view class="out">支<text>{{item.out}}</text></view>
+      </view>
+      <view class="balance">
+        <view wx:if="{{item.in<item.out}}" class="f">-¥{{item.balance}}</view>
+        <view wx:else class="z">¥{{item.balance}}</view>        
+        <view>结余</view>
+      </view>
+      <view class="line clearfix"></view>  
+    </view>
+  </view>
+</view>

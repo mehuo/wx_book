@@ -20,7 +20,7 @@ image{
 .footer{
   width: 100%;
   height:49px;
-  background: #f8f8f8;
+  background: #fff;
   border-top:solid 1px #cdcdcd;
   position: fixed;
   bottom: 0;
@@ -80,39 +80,53 @@ image{
   line-height: 24px;
   margin-bottom: 15px; 
 }
-
-
-.details{
-  
+.result .item .value.blance{
+  font-size: 24px; 
 }
-.details .date-box{
-  background:#f8f8f8;
-  font-size:12px;
-  padding:6px 10px;
-  line-height:14px;
 
+
+
+.details .date-box{
+  background:#fff;
+  padding:0 16px;
+  color: #393a46;
+  font-size: 10px;
+  line-height: 30px;
+  height: 30px;
+  border-bottom: solid 1px #efefef;
 }
 .details .cate-box{
-  background:#fff;
-  font-size:18px;
-  padding:6px 10px;
+  color: #393a46;
+  font-size: 14px;
+  padding:0 0 0 16px; 
+  height: 49px;
+  line-height: 49px;
 }
-.flex-wrp .flex-time{
-  width: 60%;
-  text-align: left;
-}
-.flex-wrp .flex-details{
+
+.date-box .flex-details{
   width: 50%;
   text-align: right;
+  float: right;
 }
-.flex-wrp .flex-cate{
-  width: 50%;
+.date-box .flex-details text:first-child{
+  margin-right: 12px;
+}
+
+.cate-box .icon{
+  width: 32px;
+  margin-top: 8px;
+}
+.cate-box .desc{
+  width: calc(100% - 32px);
+  border-bottom: solid 1px #efefef;
+  margin-left: 12px; 
+}
+.cate-box .flex-cate{
   text-align: left;
 }
-.flex-wrp .flex-blance{
-  width: 50%;
-  text-align: right;
-  font-weight: bold;
+.cate-box .flex-blance{
+  float: right;
+  margin-right: 16px;
 }
 .note-icon{
   width:34px;

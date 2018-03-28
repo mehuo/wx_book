@@ -12,16 +12,16 @@
         <view class="inline share">2共享</view>
       </view>
       <view class="oper_icon" style='margin-right:0'>
-        <image class="icon-size" src="../image/index/search_icon.png"></image>                
+        <image class="icon-size" mode="widthFix" src="../image/index/search_icon.png"></image>   
       </view>
       <view class="oper_icon">
-        <image class="icon-size" src="../image/index/date_icon.png"></image>        
+        <image class="icon-size" mode="widthFix" src="../image/index/share_icon.png"></image>      
       </view>
       <view class="oper_icon">
-        <image class="icon-size" src="../image/index/share_icon.png"></image>      
+        <image class="icon-size" mode="widthFix" src="../image/index/date_icon.png"></image>        
       </view>
       <view class="oper_icon">
-        <image class="icon-size" src="../image/index/detail_icon.png"></image>                           
+        <image class="icon-size" mode="widthFix" src="../image/index/detail_icon.png"></image>              
       </view> 
     </view>
   </view>
@@ -33,7 +33,7 @@
     </view>
     <view class="item" style='width:34%'>
       <view class="desc">结余</view>
-      <view class="value">50000.00</view>
+      <view class="value blance">50000.00</view>
     </view>
     <view class="item">
       <view class="desc">收入</view>
@@ -42,14 +42,20 @@
   </view>
   <view class='main'>
     <view class="details" wx:for="{{details}}">
-      <view class="flex-wrp date-box">
-        <view class="flex-cate">{{item.time}}</view>
-        <view class="flex-details">支出：{{item.expend}}</view>
-        <view class="flex-details">收入：{{item.income}}</view>
+      <view class="date-box">
+        <text>{{item.time}}</text>
+        <text class="flex-details">
+          <text>支出：{{item.expend}}</text>
+          <text>收入：{{item.income}}</text>
+        </text>
       </view>
-      <view class="flex-wrp cate-box">
-        <view class="flex-cate">{{item.cate}}</view>
-        <view class="flex-blance">{{item.blance}}</view>
+      <view class="cate-box flex-wrp">
+          <image class="icon" src="../image/icons/10.png"  mode="widthFix"></image>
+          <view class="desc">
+            <text class="flex-cate">{{item.cate}}</text>
+            <text class="flex-blance">{{item.blance}}</text>
+          </view>
+          
       </view>
     </view>
     
@@ -57,13 +63,13 @@
   <view class='footer'>
     <view class="flex-wrp">
       <view class="flex-item icons" style="width:20%">
-        <image src="../image/index/bills.png"></image>
+        <image mode="widthFix" src="../image/index/bills.png"></image>
       </view>      
       <view class="flex-item icons" style="width:60%">
-        <image src="../image/index/note.png" style="width:29px;" bindtap="bindAddRecord"></image>
+        <image mode="widthFix" src="../image/index/note.png" bindtap="bindAddRecord"></image>
       </view>
       <view class="flex-item icons" style="width:20%">
-        <image src="../image/index/service.png"></image>        
+        <image mode="widthFix" src="../image/index/service.png"></image>        
       </view>
     </view>
   </view>

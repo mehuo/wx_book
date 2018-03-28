@@ -1,0 +1,129 @@
+.overview{
+  width: 100%;
+  height: 80px;
+  background: #fff;
+  border-bottom:solid 1px #f0f0f0;
+  padding:9px 0;
+  box-sizing: border-box;
+}
+.overview .item{
+  display:inline-block;
+  width: 33%;
+  text-align: center;
+  position: relative;
+}
+.overview .item view{
+  height: 36px;
+  width:36px;
+  line-height: 36px;
+  font-size: 10px;
+  color: #fff;
+  border-radius: 36px;
+  position: absolute;
+  left: 50%;
+  top:50%;
+  margin-top: -9px;
+  margin-left: -18px;
+}
+.overview .item text{
+  color: #3d4c62;
+  font-size: 14px;
+  position: relative;
+  top: 36px;
+}
+.overview .out{
+  background: rgba(247,95,97,0.6);
+}
+.overview .in{
+  background: rgba(15,203,143,0.6);
+}
+.overview .balance{
+  background: rgba(54,59,88,0.6);
+}
+
+.details{
+
+}
+.details .item{
+  margin-top:15px;
+}
+.details .down{
+  width: 20px;
+  display: inline-block;
+}
+.details .date{
+  display: inline-block;
+  width: 50px;
+}
+.details .date view:nth-child(1){
+  color: #393a46;
+  font-size: 14px;
+  line-height: 14px;
+  padding-top: 2px;
+}
+.details .date view:nth-child(2){
+  color: #a5a4a9;
+  font-size: 12px;
+  padding-top: 2px;
+}
+.details .bar{
+  display: inline-block;
+  width: calc(100% - 170px);
+}
+.details .bar view{
+  font-size: 10px;
+  line-height: 14px;
+  border-radius: 0 7px 7px 0;
+  padding-left: 4px;
+  box-sizing: border-box;
+  color: #373c59;
+  height: 14px;
+  margin-bottom: 4px;
+}
+.details .bar .in text{
+  color: #0fcb8f;
+  margin-left: 4px;
+}
+.details .bar .out text{
+  color: #f75f61;
+  margin-left: 4px;
+}
+.details .bar .in.percent{
+  background: rgba(15,203,143,0.6);
+  margin-top: 0;
+  color: #fff;
+  width: 100%;
+}
+.details .bar .out.percent{
+  background: rgba(247,95,97,0.6);
+  width: 100%;
+  color: #fff;
+}
+.details .balance{
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+  padding-right: 14px;
+  box-sizing: border-box;
+}
+.details .balance .f{
+  color: #f75f61;
+}
+.details .balance .z{
+  color: #0fcb8f;
+}
+.details .balance view:nth-child(1){
+  font-size: 14px;
+}
+.details .balance view:nth-child(2){
+  color: #373c59;
+  font-size: 10px;
+}
+.details .line{
+  background: #f0f0f0;
+  height: 1px;
+  width:calc(100% - 16px);
+  margin-top: 13px;
+  margin-left: 16px;
+}
+

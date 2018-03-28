@@ -1,35 +1,38 @@
+var util = require('../../utils/util.js');
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
+    keyboard : getApp().globalData.keyboard,
     type:'1',
     expend_icons:[
-      { id: 1, text: '餐饮', icon: '../image/icons/1.png' },
-      { id: 2, text: '购物', icon: '../image/icons/2.png' },
-      { id: 3, text: '打车', icon: '../image/icons/3.png' },
-      { id: 4, text: '午餐', icon: '../image/icons/4.png' },
-      { id: 5, text: '晚餐', icon: '../image/icons/5.png' },
-      { id: 6, text: '衣服', icon: '../image/icons/6.png' },
-      { id: 7, text: '鞋', icon: '../image/icons/7.png' },
-      { id: 8, text: '包包', icon: '../image/icons/8.png' },
-      { id: 9, text: '随份子', icon: '../image/icons/9.png' },
-      { id: 10, text: '贷款', icon: '../image/icons/10.png' },      
+      { id: 1, text: '吃喝', icon: '../image/icons/out/ch'},
+      { id: 2, text: '交通', icon: '../image/icons/out/jt' },
+      { id: 3, text: '服饰', icon: '../image/icons/out/fs' },
+      { id: 4, text: '日用品', icon: '../image/icons/out/ryp' },
+      { id: 5, text: '红包', icon: '../image/icons/out/hb' },
+      { id: 6, text: '买菜', icon: '../image/icons/out/mc' },
+      { id: 7, text: '孩子', icon: '../image/icons/out/hz' },
+      { id: 8, text: '网购', icon: '../image/icons/out/wg' },
+      { id: 9, text: '话费', icon: '../image/icons/out/hf' },
+      { id: 10, text: '娱乐', icon: '../image/icons/out/yule' },
+      { id: 11, text: '医疗', icon: '../image/icons/out/yl' },  
+      { id: 12, text: '化妆护肤', icon: '../image/icons/out/hzhf' },   
+      { id: 13, text: '其他', icon: '../image/icons/out/qt' },         
     ],
     income_icons:[
-      { id: 1, text: '工资', icon: '../image/icons/1.png' },
-      { id: 2, text: '红包', icon: '../image/icons/2.png' },
-      { id: 3, text: '外快', icon: '../image/icons/3.png' },
-      { id: 4, text: '奖金', icon: '../image/icons/4.png' },
-      { id: 5, text: '晚餐', icon: '../image/icons/5.png' },
-      { id: 6, text: '晚餐', icon: '../image/icons/5.png' },
+      { id: 1, text: '工资', icon: '../image/icons/in/gz' },
+      { id: 2, text: '兼职', icon: '../image/icons/in/jz' },
+      { id: 3, text: '投资', icon: '../image/icons/in/tz' }
     ],
     record_info:{
       cate_text :'',
-      value:'',
+      value:0,
       type:''
-    }
+    },
+    num:'',
+    numtype:'num'
   },
   changeType:function(event){
     var that = this;
@@ -44,17 +47,63 @@ Page({
       }
     }
   },
+  //设置选中的图标icon
   setCate:function(event){
     var that = this;
+    console.log(event.currentTarget)
     if (event.currentTarget.dataset.cate){
       var cate = event.currentTarget.dataset.cate;
       this.setData({
         ['record_info.cate_text']: cate.text,
-        ['record_info.cate_icon']: cate.icon
-        
+        ['record_info.cate_icon']: cate.icon,
+        ['record_info.icon_id']: cate.id,
       })
     }
-    console.log(this.data) 
+    console.log(this.data.expend_icons) 
+  },
+  setNum: function (event) {
+    var value = event.currentTarget.dataset.value;
+    console.log(value);
+    var final_value = this.data.num + value+'';
+    console.log(final_value)
+    this.setData({
+      'num': final_value ,
+      'numtype':'num' 
+    })
+  },
+  calc: function (event) {
+    var calc_type = event.currentTarget.dataset.type;
+    if (this.data.num != '' ){
+      if (calc_type == 'plus') {
+        var actual = parseFloat(this.data.record_info.value + parseFloat      (this.data.num))
+      } else {
+        var actual = parseFloat(this.data.record_info.value - parseFloat(this.data.num))
+      }
+      this.setData({
+        'record_info.value': actual,
+        'numtype': 'res',
+        'num': ''
+      })
+    } 
+  },
+  setDate: function () {
+    console.log('设置日期');
+  },
+  del: function () {
+    if(this.data.numtype == 'num'){
+      var str_len = this.data.num.length;      
+      this.setData({
+        num: this.data.num.substring(0, str_len-1)         
+      })
+    }else{
+      var str_len = (this.data.record_info.value+'').length;
+      this.setData({
+        'record_info.value': (this.data.record_info.value+'').substring(0, str_len - 1)
+      })
+    }
+  },
+  complete: function () {
+    console.log('complete')
   },
 
   newCate:function(){
@@ -84,7 +133,9 @@ Page({
     this.setData({
       icons:this.data.expend_icons,
       ['record_info.cate_text']: this.data.expend_icons[0].text,
-      ['record_info.cate_icon']: this.data.expend_icons[0].icon
+      ['record_info.cate_icon']: this.data.expend_icons[0].icon,
+      ['record_info.icon_id']: this.data.expend_icons[0].id,
+      
       
     })
   },
